@@ -34,9 +34,11 @@ INSTALLED_APPS = [
     #apps
     'core',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
+    'user',
 
-    #django stuff
+    #django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
