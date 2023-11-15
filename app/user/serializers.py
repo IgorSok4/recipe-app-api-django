@@ -18,9 +18,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['email', 'password', 'name']
         extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}
 
-    # Override the default serializer create method. The serializer create method would pass through the password without encryption.
-    # create_user() used below will create a user with an encrypted password.
-    # The serializer's create method only gets called when the validation is successful.
+    # Override the default serializer create method. The serializer create
+    # method would pass through the password without encryption.
+    # create_user() used below will create a user with an
+    # encrypted password.
+    # The serializer's create method only gets called when the
+    # validation is successful.
     def create(self, validated_data):
         """Create and return a user with encrypted password."""
         return get_user_model().objects.create_user(**validated_data)
